@@ -1,0 +1,112 @@
+:root {
+    --glass: rgba(255, 255, 255, 0.15);
+    --border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a0a0c;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden;
+}
+
+/* Floating Bubble Animations */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: float 20s infinite alternate;
+}
+
+.b1 { width: 400px; height: 400px; background: #4facfe; top: -10%; left: -10%; }
+.b2 { width: 350px; height: 350px; background: #00f2fe; bottom: -5%; right: 10%; animation-delay: -5s; }
+.b3 { width: 300px; height: 300px; background: #7000ff; bottom: 20%; left: 30%; animation-delay: -10s; }
+
+@keyframes float {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(50px, 100px) scale(1.2); }
+}
+
+/* The Glass Card */
+.glass-container {
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+header h1 {
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+header h1 span { font-weight: 700; color: #00f2fe; }
+
+#chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 12px 18px;
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    animation: fadeIn 0.4s ease;
+}
+
+.ai-message { background: rgba(255, 255, 255, 0.1); color: white; align-self: flex-start; }
+.user-message { background: #007aff; color: white; align-self: flex-end; }
+
+.input-area {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 12px 20px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus { background: rgba(255, 255, 255, 0.1); border-color: #007aff; }
+
+button {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    width: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { transform: scale(1.05); background: #00f2fe; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
