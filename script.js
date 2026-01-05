@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_KEY_HERE"; // PASTE YOUR KEY HERE
+const API_KEY = "AIzaSyB3iVUjw1tSqGeQYWWZyTS5-ldxKzu0icU"; // PASTE YOUR KEY HERE
 const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
